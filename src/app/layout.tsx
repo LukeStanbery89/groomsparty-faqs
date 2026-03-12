@@ -5,8 +5,11 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Grooms Party FAQ",
+  title: "The Grooms Party FAQ",
   description: "Everything you need to know about the big day",
+  icons: {
+    icon: "/assets/icon_32.png",
+  },
 };
 
 export default function RootLayout({
