@@ -3,32 +3,39 @@
 import { useState, useEffect } from "react";
 
 interface FAQ {
+  id: string;
   question: string;
   answer: string;
 }
 
 const faqs: FAQ[] = [
   {
+    id: "when-where",
     question: "When and where is the party?",
     answer: "The celebration will be on June 26, 2026. More details coming soon!",
   },
   {
+    id: "dress-code",
     question: "What's the dress code?",
     answer: "Smart casual. Think comfortable but put-together.",
   },
   {
+    id: "registry",
     question: "Is there a registry?",
     answer: "We're not registered - just your presence is the best gift!",
   },
   {
+    id: "plus-one",
     question: "Can I bring a plus one?",
     answer: "Check your invitation for +1 details.",
   },
   {
+    id: "what-to-bring",
     question: "What should I bring?",
     answer: "Just yourself and good vibes! We'll handle the rest.",
   },
   {
+    id: "food-drinks",
     question: "Will there be food and drinks?",
     answer: "Absolutely - food and drinks will be provided.",
   },
@@ -77,9 +84,9 @@ function Countdown({ targetDate }: { targetDate: Date }) {
   );
 }
 
-function FAQItem({ question, answer, isOpen, onToggle }: FAQ & { isOpen: boolean; onToggle: () => void }) {
+function FAQItem({ id, question, answer, isOpen, onToggle }: FAQ & { isOpen: boolean; onToggle: () => void }) {
   return (
-    <div className="border-b border-zinc-200">
+    <div id={id} className="border-b border-zinc-200 scroll-mt-8">
       <button
         onClick={onToggle}
         className="w-full py-5 flex justify-between items-center text-left group"
@@ -103,7 +110,30 @@ function FAQItem({ question, answer, isOpen, onToggle }: FAQ & { isOpen: boolean
 
 export default function Home() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const targetDate = new Date("June 26, 2026 21:30:00Z"); // 4:30 PM CDT
+  const targetDate = new Date("June 26, 2026 21:30:00Z");
+
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    if (hash) {
+      const index = faqs.findIndex((faq) => faq.id === hash);
+      if (index !== -1) {
+        setOpenIndex(index);
+        setTimeout(() => {
+          document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+    }
+  }, []);
+
+  const handleToggle = (index: number) => {
+    const newIndex = openIndex === index ? null : index;
+    setOpenIndex(newIndex);
+    if (newIndex !== null) {
+      window.history.pushState(null, "", `#${faqs[newIndex].id}`);
+    } else {
+      window.history.pushState(null, "", window.location.pathname);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -133,11 +163,12 @@ export default function Home() {
           <div>
             {faqs.map((faq, index) => (
               <FAQItem
-                key={index}
+                key={faq.id}
+                id={faq.id}
                 question={faq.question}
                 answer={faq.answer}
                 isOpen={openIndex === index}
-                onToggle={() => setOpenIndex(openIndex === index ? null : index)}
+                onToggle={() => handleToggle(index)}
               />
             ))}
           </div>
