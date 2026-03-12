@@ -8,36 +8,80 @@ interface FAQ {
   answer: string;
 }
 
-const faqs: FAQ[] = [
+interface FAQSection {
+  title: string;
+  id: string;
+  faqs: FAQ[];
+}
+
+const sections: FAQSection[] = [
   {
-    id: "when-where",
-    question: "When and where is the party?",
-    answer: "The celebration will be on June 26, 2026. More details coming soon!",
+    title: "General",
+    id: "general",
+    faqs: [
+      {
+        id: "when-where",
+        question: "When and where is the party?",
+        answer: "The celebration will be on June 26, 2026. More details coming soon!",
+      },
+      {
+        id: "dress-code",
+        question: "What's the dress code?",
+        answer: "Smart casual. Think comfortable but put-together.",
+      },
+      {
+        id: "registry",
+        question: "Is there a registry?",
+        answer: "We're not registered - just your presence is the best gift!",
+      },
+      {
+        id: "plus-one",
+        question: "Can I bring a plus one?",
+        answer: "Check your invitation for +1 details.",
+      },
+      {
+        id: "what-to-bring",
+        question: "What should I bring?",
+        answer: "Just yourself and good vibes! We'll handle the rest.",
+      },
+      {
+        id: "food-drinks",
+        question: "Will there be food and drinks?",
+        answer: "Absolutely - food and drinks will be provided.",
+      },
+    ],
   },
   {
-    id: "dress-code",
-    question: "What's the dress code?",
-    answer: "Smart casual. Think comfortable but put-together.",
+    title: "Groomsladies",
+    id: "groomsladies",
+    faqs: [
+      {
+        id: "groomsladies-attire",
+        question: "What should I wear?",
+        answer: "Details coming soon!",
+      },
+      {
+        id: "groomsladies-schedule",
+        question: "What's the schedule for the day?",
+        answer: "Details coming soon!",
+      },
+    ],
   },
   {
-    id: "registry",
-    question: "Is there a registry?",
-    answer: "We're not registered - just your presence is the best gift!",
-  },
-  {
-    id: "plus-one",
-    question: "Can I bring a plus one?",
-    answer: "Check your invitation for +1 details.",
-  },
-  {
-    id: "what-to-bring",
-    question: "What should I bring?",
-    answer: "Just yourself and good vibes! We'll handle the rest.",
-  },
-  {
-    id: "food-drinks",
-    question: "Will there be food and drinks?",
-    answer: "Absolutely - food and drinks will be provided.",
+    title: "Groomsmen",
+    id: "groomsmen",
+    faqs: [
+      {
+        id: "groomsmen-attire",
+        question: "What should I wear?",
+        answer: "Details coming soon!",
+      },
+      {
+        id: "groomsmen-schedule",
+        question: "What's the schedule for the day?",
+        answer: "Details coming soon!",
+      },
+    ],
   },
 ];
 
@@ -108,28 +152,61 @@ function FAQItem({ id, question, answer, isOpen, onToggle }: FAQ & { isOpen: boo
   );
 }
 
+function FAQSectionComponent({ 
+  title, 
+  id, 
+  faqs, 
+  openId, 
+  onToggle 
+}: FAQSection & { openId: string | null; onToggle: (faqId: string) => void }) {
+  return (
+    <section id={id} className="py-16 sm:py-24 px-6">
+      <div className="max-w-2xl mx-auto">
+        <h2 className="text-sm text-zinc-400 uppercase tracking-widest mb-8 text-center">
+          {title}
+        </h2>
+        <div>
+          {faqs.map((faq) => (
+            <FAQItem
+              key={faq.id}
+              id={faq.id}
+              question={faq.question}
+              answer={faq.answer}
+              isOpen={openId === faq.id}
+              onToggle={() => onToggle(faq.id)}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openFaqId, setOpenFaqId] = useState<string | null>(null);
   const targetDate = new Date("June 26, 2026 21:30:00Z");
 
   useEffect(() => {
     const hash = window.location.hash.slice(1);
     if (hash) {
-      const index = faqs.findIndex((faq) => faq.id === hash);
-      if (index !== -1) {
-        setOpenIndex(index);
-        setTimeout(() => {
-          document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
-        }, 100);
+      for (const section of sections) {
+        const faq = section.faqs.find(f => f.id === hash);
+        if (faq) {
+          setOpenFaqId(hash);
+          setTimeout(() => {
+            document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+          }, 100);
+          break;
+        }
       }
     }
   }, []);
 
-  const handleToggle = (index: number) => {
-    const newIndex = openIndex === index ? null : index;
-    setOpenIndex(newIndex);
-    if (newIndex !== null) {
-      window.history.pushState(null, "", `#${faqs[newIndex].id}`);
+  const handleToggle = (faqId: string) => {
+    const newOpenId = openFaqId === faqId ? null : faqId;
+    setOpenFaqId(newOpenId);
+    if (newOpenId !== null) {
+      window.history.pushState(null, "", `#${newOpenId}`);
     } else {
       window.history.pushState(null, "", window.location.pathname);
     }
@@ -155,25 +232,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-24 px-6">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="text-sm text-zinc-400 uppercase tracking-widest mb-8 text-center">
-            Frequently Asked Questions
-          </h2>
-          <div>
-            {faqs.map((faq, index) => (
-              <FAQItem
-                key={faq.id}
-                id={faq.id}
-                question={faq.question}
-                answer={faq.answer}
-                isOpen={openIndex === index}
-                onToggle={() => handleToggle(index)}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
+      {sections.map((section) => (
+        <FAQSectionComponent
+          key={section.id}
+          {...section}
+          openId={openFaqId}
+          onToggle={handleToggle}
+        />
+      ))}
 
       <footer className="py-12 px-6 border-t border-zinc-100">
         <div className="max-w-2xl mx-auto text-center">
