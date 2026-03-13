@@ -26,7 +26,7 @@ const sections: FAQSection[] = [
                 question: "Where is the wedding venue?",
                 answer: (
                     <div>
-                        <p><strong>Hoosier Grove Barn</strong><br />
+                        <p><FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" /><strong>Hoosier Grove Barn</strong><br />
                         700 Irving Park Rd, Streamwood, IL 60107</p>
                         <a 
                             href="https://maps.app.goo.gl/dbaX1iA3eR1nX7Z38" 
@@ -46,12 +46,12 @@ const sections: FAQSection[] = [
                     <div className="space-y-3">
                         <div>
                             <p><strong>Pre-Ceremony</strong></p>
-                            <p className="text-sm">Location: Eaglewood Resort & Spa, Itasca, IL</p>
+                            <p className="text-sm"><FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" />Eaglewood Resort & Spa, Itasca, IL</p>
                             <p className="text-sm">Schedule: TBA</p>
                         </div>
                         <div>
                             <p><strong>Ceremony / Reception</strong></p>
-                            <p className="text-sm">Location: Hoosier Grove Barn, Streamwood, IL</p>
+                            <p className="text-sm"><FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" />Hoosier Grove Barn, Streamwood, IL</p>
                             <p>4:30pm - Ceremony</p>
                             <p>5:00pm-6:00pm - Cocktail hour</p>
                             <p>6:00pm-6:25pm - Guests are seated for dinner</p>
@@ -64,12 +64,12 @@ const sections: FAQSection[] = [
                 ),
             },
             {
-                id: "hotel-block",
-                question: "Is there a hotel block reserved?",
+                id: "getting-ready",
+                question: "Where is the groom's party getting ready?",
                 answer: (
                     <div>
-                        <p>Yes. Call the hotel and ask for a room in the Stanbery room block.</p>
-                        <p className="mt-2"><strong>Eaglewood Resort & Spa</strong><br />
+                        <p className="mb-2">At the hotel.</p>
+                        <p><FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" /><strong>Eaglewood Resort & Spa</strong><br />
                         1401 Nordic Rd, Itasca, IL 60143</p>
                         <a 
                             href="https://maps.app.goo.gl/Hf3e7N8JPWXT51f27" 
@@ -83,21 +83,31 @@ const sections: FAQSection[] = [
                 ),
             },
             {
-                id: "getting-ready",
-                question: "Where are we getting ready?",
+                id: "rehearsal",
+                question: "When is the rehearsal?",
                 answer: (
                     <div>
-                        <p>At the hotel.</p>
-                        <p className="mt-2"><strong>Eaglewood Resort & Spa</strong><br />
-                        1401 Nordic Rd, Itasca, IL 60143</p>
+                        <p className="mb-2"><FontAwesomeIcon icon={faCalendar} className="mr-2" />June 25th, 2026 at 5:00pm</p>
+                        <p><FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" /><strong>Hoosier Grove Barn</strong><br />
+                        700 Irving Park Rd, Streamwood, IL 60107</p>
                         <a 
-                            href="https://maps.app.goo.gl/Hf3e7N8JPWXT51f27" 
+                            href="https://maps.app.goo.gl/dbaX1iA3eR1nX7Z38" 
                             target="_blank" 
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:text-blue-800 mt-1 inline-block"
                         >
                             View on Google Maps
                         </a>
+                    </div>
+                ),
+            },
+            {
+                id: "rehearsal-dinner",
+                question: "Where is the rehearsal dinner?",
+                answer: (
+                    <div>
+                        <p className="mb-2"><FontAwesomeIcon icon={faCalendar} className="mr-2" />June 25th, 2026 at 7:00pm</p>
+                        <p><FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" /><strong>TBA</strong></p>
                     </div>
                 ),
             },
@@ -315,38 +325,59 @@ const sections: FAQSection[] = [
     },
 ];
 
-function Countdown({ targetDate }: { targetDate: Date; }) {
-    const [timeLeft, setTimeLeft] = useState({
-        days: 0,
-        hours: 0,
-        minutes: 0,
-        seconds: 0,
-    });
+function Countdown({ targetDate }: { targetDate: string }) {
+    const calculateTimeLeft = () => {
+        const target = new Date(targetDate).getTime();
+        const now = new Date().getTime();
+        const difference = target - now;
+        
+        if (difference > 0) {
+            return {
+                days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+                hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+                minutes: Math.floor((difference / 1000 / 60) % 60),
+                seconds: Math.floor((difference / 1000) % 60),
+            };
+        }
+        return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+    };
+
+    const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
     useEffect(() => {
-        const calculateTimeLeft = () => {
-            const difference = targetDate.getTime() - new Date().getTime();
-
-            if (difference > 0) {
-                setTimeLeft({
-                    days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-                    hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-                    minutes: Math.floor((difference / 1000 / 60) % 60),
-                    seconds: Math.floor((difference / 1000) % 60),
-                });
-            }
-        };
-
-        calculateTimeLeft();
-        const timer = setInterval(calculateTimeLeft, 1000);
-        return () => clearInterval(timer);
+        setTimeLeft(calculateTimeLeft());
+        
+        const intervalId = setInterval(() => {
+            setTimeLeft(prev => {
+                const target = new Date(targetDate).getTime();
+                const now = new Date().getTime();
+                const diff = target - now;
+                
+                if (diff <= 0) {
+                    clearInterval(intervalId);
+                    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+                }
+                
+                return {
+                    days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+                    hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+                    minutes: Math.floor((diff / 1000 / 60) % 60),
+                    seconds: Math.floor((diff / 1000) % 60),
+                };
+            });
+        }, 1000);
+        
+        return () => clearInterval(intervalId);
     }, [targetDate]);
 
     return (
         <div className="flex gap-4 sm:gap-8 justify-center">
             {Object.entries(timeLeft).map(([unit, value]) => (
                 <div key={unit} className="flex flex-col items-center">
-                    <span className="text-3xl sm:text-5xl font-light text-zinc-900">
+                    <span 
+                        className="text-3xl sm:text-5xl font-light text-zinc-900"
+                        suppressHydrationWarning
+                    >
                         {value}
                     </span>
                     <span className="text-xs sm:text-sm text-zinc-500 uppercase tracking-wider mt-1">
@@ -414,7 +445,7 @@ function FAQSectionComponent({
 
 export default function Home() {
     const [openFaqId, setOpenFaqId] = useState<string | null>(null);
-    const targetDate = new Date("June 26, 2026 21:30:00Z");
+    const targetDate = "2026-06-26T21:30:00Z";
 
     useEffect(() => {
         const hash = window.location.hash.slice(1);
