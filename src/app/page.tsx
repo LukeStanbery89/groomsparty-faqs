@@ -27,10 +27,10 @@ const sections: FAQSection[] = [
                 answer: (
                     <div>
                         <p><FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" /><strong>Hoosier Grove Barn</strong><br />
-                        700 Irving Park Rd, Streamwood, IL 60107</p>
-                        <a 
-                            href="https://maps.app.goo.gl/dbaX1iA3eR1nX7Z38" 
-                            target="_blank" 
+                            700 Irving Park Rd, Streamwood, IL 60107</p>
+                        <a
+                            href="https://maps.app.goo.gl/dbaX1iA3eR1nX7Z38"
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:text-blue-800 mt-1 inline-block"
                         >
@@ -70,10 +70,10 @@ const sections: FAQSection[] = [
                     <div>
                         <p className="mb-2">At the hotel.</p>
                         <p><FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" /><strong>Eaglewood Resort & Spa</strong><br />
-                        1401 Nordic Rd, Itasca, IL 60143</p>
-                        <a 
-                            href="https://maps.app.goo.gl/Hf3e7N8JPWXT51f27" 
-                            target="_blank" 
+                            1401 Nordic Rd, Itasca, IL 60143</p>
+                        <a
+                            href="https://maps.app.goo.gl/Hf3e7N8JPWXT51f27"
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:text-blue-800 mt-1 inline-block"
                         >
@@ -89,10 +89,10 @@ const sections: FAQSection[] = [
                     <div>
                         <p className="mb-2"><FontAwesomeIcon icon={faCalendar} className="mr-2" />June 25th, 2026 at 5:00pm</p>
                         <p><FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" /><strong>Hoosier Grove Barn</strong><br />
-                        700 Irving Park Rd, Streamwood, IL 60107</p>
-                        <a 
-                            href="https://maps.app.goo.gl/dbaX1iA3eR1nX7Z38" 
-                            target="_blank" 
+                            700 Irving Park Rd, Streamwood, IL 60107</p>
+                        <a
+                            href="https://maps.app.goo.gl/dbaX1iA3eR1nX7Z38"
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:text-blue-800 mt-1 inline-block"
                         >
@@ -123,18 +123,18 @@ const sections: FAQSection[] = [
                 answer: (
                     <div>
                         <p>Suit components are in this Amazon list:</p>
-                        <a 
-                            href="https://www.amazon.com/hz/wishlist/ls/33OZ0UYP25Q9" 
-                            target="_blank" 
+                        <a
+                            href="https://www.amazon.com/hz/wishlist/ls/33OZ0UYP25Q9"
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:text-blue-800"
                         >
                             Amazon Wishlist
                         </a>
                         <p className="mt-2 text-sm text-zinc-500">FYI - The bow ties sold out, so I bought them myself.</p>
-                        <img 
-                            src="/assets/groomsladies_look.png" 
-                            alt="Groomsladies outfit inspiration" 
+                        <img
+                            src="/assets/groomsladies_look.png"
+                            alt="Groomsladies outfit inspiration"
                             className="mt-3 rounded-md max-w-full"
                         />
                     </div>
@@ -144,7 +144,7 @@ const sections: FAQSection[] = [
                 id: "groomsladies-reception-attire",
                 question: "What should I wear to the reception?",
                 answer: (
-                    <p>You are welcome to change out of your suit into a dress for the reception, but we ask that it be yellow. We want the grooms party to maintain visual cohesion even after changing out of your suits.</p>
+                    <p>You are welcome to change out of your suit into a dress for the reception, but we ask that it be yellow. We want the groom's party to maintain visual cohesion even after changing out of your suits.</p>
                 ),
             },
             {
@@ -160,7 +160,7 @@ const sections: FAQSection[] = [
                 answer: (
                     <div>
                         <p>Yes, but...</p>
-                        <p className="mt-2 text-sm">The bridal party will be getting ready at the venue while the grooms party gets ready at the hotel. If you want to use the same service, they will need to add another staff member to be onsite at the hotel, which will cost extra. If you want to use the same service, we can arrange it but it would be at your own expense. Just talk to Stephanie.</p>
+                        <p className="mt-2 text-sm">The bridal party will be getting ready at the venue while the groom's party gets ready at the hotel. If you want to use the same service, they will need to add another staff member to be onsite at the hotel, which will cost extra. If you want to use the same service, we can arrange it but it would be at your own expense. Just talk to Stephanie.</p>
                         <p className="mt-2"><strong>Pricing:</strong></p>
                         <p>Hair: $100</p>
                         <p>Full makeup: $100</p>
@@ -186,17 +186,17 @@ const sections: FAQSection[] = [
                 answer: (
                     <div>
                         <p>Use the link below to reserve your tux. You need to order online, then do your fitting at home.</p>
-                        <a 
-                            href="https://gentux.me/1q7rbp" 
-                            target="_blank" 
+                        <a
+                            href="https://gentux.me/1q7rbp"
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:text-blue-800 mt-1 inline-block"
                         >
                             Reserve Your Tux
                         </a>
-                        <img 
-                            src="/assets/groomsmen_looks.png" 
-                            alt="Groomsmen outfit inspiration" 
+                        <img
+                            src="/assets/groomsmen_looks.png"
+                            alt="Groomsmen outfit inspiration"
                             className="mt-3 rounded-md max-w-full"
                         />
                     </div>
@@ -208,12 +208,12 @@ const sections: FAQSection[] = [
                 answer: (
                     <div>
                         <div className="mb-3">
-                            <iframe 
-                                width="100%" 
-                                src="https://www.youtube.com/embed/KkiQH9msHaU" 
-                                title="How to measure yourself for a tux" 
-                                frameBorder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            <iframe
+                                width="100%"
+                                src="https://www.youtube.com/embed/KkiQH9msHaU"
+                                title="How to measure yourself for a tux"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowFullScreen
                                 className="rounded-md w-full aspect-video"
                             />
@@ -246,13 +246,13 @@ const sections: FAQSection[] = [
                         <p>Please note that everyone is responsible for booking their own flights. If you want to take the same flights as me, here are my flight details:</p>
                         <div className="mt-2 space-y-2">
                             <p><FontAwesomeIcon icon={faPlaneDeparture} className="mr-2" /><strong>Depart:</strong><br />
-                            O'Hare Int'l Airport<br />
-                            American Airlines 6:45am<br />
-                            Seat 31D</p>
+                                O'Hare Int'l Airport<br />
+                                American Airlines 6:45am<br />
+                                Seat 31D</p>
                             <p><FontAwesomeIcon icon={faPlaneArrival} className="mr-2" /><strong>Return:</strong><br />
-                            Harry Reid Int'l Airport<br />
-                            American Airlines 3:04pm<br />
-                            Seat 29F</p>
+                                Harry Reid Int'l Airport<br />
+                                American Airlines 3:04pm<br />
+                                Seat 29F</p>
                         </div>
                     </div>
                 ),
@@ -263,9 +263,9 @@ const sections: FAQSection[] = [
                 answer: (
                     <div>
                         <p className="mb-2"><FontAwesomeIcon icon={faHouse} className="mr-2" />6885 Coley Avenue<br />Las Vegas, NV 89146</p>
-                        <a 
-                            href="https://www.airbnb.com/trips/shared/878f3593-5587-4650-b5db-29be05d9475a?confCode=HMMKPH8BWX&principal_token=5f343252-5b39-49e3-806d-a48ea1271ed0&s=67&unique_share_id=5b5e87e7-285e-4223-b477-33e0436980bd" 
-                            target="_blank" 
+                        <a
+                            href="https://www.airbnb.com/trips/shared/878f3593-5587-4650-b5db-29be05d9475a?confCode=HMMKPH8BWX&principal_token=5f343252-5b39-49e3-806d-a48ea1271ed0&s=67&unique_share_id=5b5e87e7-285e-4223-b477-33e0436980bd"
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:text-blue-800"
                         >
@@ -282,22 +282,22 @@ const sections: FAQSection[] = [
                         <p>This itinerary is nearly final. You are welcome to opt out of any group activity you want and spend time on your own.</p>
                         <p><strong>Thursday 4/23</strong></p>
                         <p>Afternoon - Arrival<br />
-                        Evening - Dinner<br />
-                        Night - Explore Fremont Street</p>
+                            Evening - Dinner<br />
+                            Night - Explore Fremont Street</p>
                         <p><strong>Friday 4/24</strong></p>
                         <p>11:00am - Wizard of Oz at The Sphere<br />
-                        Afternoon - Lunch<br />
-                        7:00pm - Free Craps lesson at the Venetian<br />
-                        Evening - Dinner and explore the strip</p>
+                            Afternoon - Lunch<br />
+                            7:00pm - Free Craps lesson at the Venetian<br />
+                            Evening - Dinner and explore the strip</p>
                         <p><strong>Saturday 4/25</strong></p>
                         <p>Morning - Brunch<br />
-                        Afternoon - Go-Karting<br />
-                        Evening - Dinner<br />
-                        7:00pm - Cirque du Soleil (Ka)<br />
-                        Night - Explore the strip</p>
+                            Afternoon - Go-Karting<br />
+                            Evening - Dinner<br />
+                            7:00pm - Cirque du Soleil (Ka)<br />
+                            Night - Explore the strip</p>
                         <p><strong>Sunday 4/26</strong></p>
                         <p>Morning - Brunch<br />
-                        Afternoon - Departure</p>
+                            Afternoon - Departure</p>
                     </div>
                 ),
             },
@@ -325,12 +325,12 @@ const sections: FAQSection[] = [
     },
 ];
 
-function Countdown({ targetDate }: { targetDate: string }) {
+function Countdown({ targetDate }: { targetDate: string; }) {
     const calculateTimeLeft = () => {
         const target = new Date(targetDate).getTime();
         const now = new Date().getTime();
         const difference = target - now;
-        
+
         if (difference > 0) {
             return {
                 days: Math.floor(difference / (1000 * 60 * 60 * 24)),
@@ -346,18 +346,18 @@ function Countdown({ targetDate }: { targetDate: string }) {
 
     useEffect(() => {
         setTimeLeft(calculateTimeLeft());
-        
+
         const intervalId = setInterval(() => {
             setTimeLeft(prev => {
                 const target = new Date(targetDate).getTime();
                 const now = new Date().getTime();
                 const diff = target - now;
-                
+
                 if (diff <= 0) {
                     clearInterval(intervalId);
                     return { days: 0, hours: 0, minutes: 0, seconds: 0 };
                 }
-                
+
                 return {
                     days: Math.floor(diff / (1000 * 60 * 60 * 24)),
                     hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
@@ -366,7 +366,7 @@ function Countdown({ targetDate }: { targetDate: string }) {
                 };
             });
         }, 1000);
-        
+
         return () => clearInterval(intervalId);
     }, [targetDate]);
 
@@ -374,7 +374,7 @@ function Countdown({ targetDate }: { targetDate: string }) {
         <div className="flex gap-4 sm:gap-8 justify-center">
             {Object.entries(timeLeft).map(([unit, value]) => (
                 <div key={unit} className="flex flex-col items-center">
-                    <span 
+                    <span
                         className="text-3xl sm:text-5xl font-light text-zinc-900"
                         suppressHydrationWarning
                     >
@@ -478,7 +478,7 @@ export default function Home() {
             <header className="py-12 sm:py-16 px-6 text-center border-b border-zinc-100">
                 <img src="/assets/icon_200.png" alt="Bowtie" className="w-24 h-24 mx-auto mb-4" />
                 <h1 className="text-2xl sm:text-3xl font-light text-zinc-900 tracking-wide">
-                    Stanbery Grooms Party FAQs
+                    Stanbery Groom's Party FAQs
                 </h1>
                 <p className="mt-3 text-zinc-500 text-sm tracking-wide uppercase">
                     June 26, 2026

@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "Stanbery Grooms Party FAQs",
+    title: "Stanbery Groom's Party FAQs",
     description: "Everything you need to know about the big day",
     icons: {
         icon: "/assets/icon_32.png",
