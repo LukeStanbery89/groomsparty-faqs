@@ -102,6 +102,11 @@ const sections: FAQSection[] = [
                 ),
             },
             {
+                id: "rehearsal-dresscode",
+                question: "What is the dress code for the rehearsal?",
+                answer: <p>Casual</p>,
+            },
+            {
                 id: "rehearsal-dinner",
                 question: "Where is the rehearsal dinner?",
                 answer: (
