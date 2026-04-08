@@ -2,7 +2,7 @@
 
 import { useState, useEffect, ReactNode } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlane, faPlaneDeparture, faPlaneArrival, faMapMarkerAlt, faCalendar, faHouse } from "@fortawesome/free-solid-svg-icons";
+import { faPlane, faPlaneDeparture, faPlaneArrival, faMapMarkerAlt, faCalendar, faHouse, faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 
 interface FAQ {
     id: string;
@@ -34,7 +34,7 @@ const sections: FAQSection[] = [
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:text-blue-800 mt-1 inline-block"
                         >
-                            View on Google Maps
+                            View on Google Maps <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-1" />
                         </a>
                     </div>
                 ),
@@ -77,7 +77,7 @@ const sections: FAQSection[] = [
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:text-blue-800 mt-1 inline-block"
                         >
-                            View on Google Maps
+                            View on Google Maps <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-1" />
                         </a>
                     </div>
                 ),
@@ -96,7 +96,7 @@ const sections: FAQSection[] = [
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:text-blue-800 mt-1 inline-block"
                         >
-                            View on Google Maps
+                            View on Google Maps <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-1" />
                         </a>
                     </div>
                 ),
@@ -111,8 +111,9 @@ const sections: FAQSection[] = [
                 question: "Where is the rehearsal dinner?",
                 answer: (
                     <div>
-                        <p className="mb-2"><FontAwesomeIcon icon={faCalendar} className="mr-2" />June 25th, 2026 at 7:00pm</p>
-                        <p><FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" /><strong>TBA</strong></p>
+                        <p className="mb-2"><FontAwesomeIcon icon={faCalendar} className="mr-2" />June 25th, 2026 at 6:00pm-9:00pm</p>
+                        <p><FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" /><strong>Moretti's Ristorante and Pizzeria</strong><br />1175 W Lake St, Bartlett, IL 60103</p>
+                        <p className="mt-2"><a href="https://maps.app.goo.gl/gt3u7UoNivvHnHfx7" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">View on Google Maps <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-1" /></a></p>
                     </div>
                 ),
             },
@@ -134,7 +135,7 @@ const sections: FAQSection[] = [
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:text-blue-800"
                         >
-                            Amazon Wishlist
+                            Amazon Wishlist <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-1" />
                         </a>
                         <p className="mt-2 text-sm text-zinc-500">FYI - The bow ties sold out, so I bought them myself.</p>
                         <img
@@ -197,7 +198,7 @@ const sections: FAQSection[] = [
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:text-blue-800 mt-1 inline-block"
                         >
-                            Reserve Your Tux
+                            Reserve Your Tux <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-1" />
                         </a>
                         <img
                             src="/assets/groomsmen_looks.png"
@@ -212,17 +213,11 @@ const sections: FAQSection[] = [
                 question: "How do I measure myself for a tux?",
                 answer: (
                     <div>
-                        <div className="mb-3">
-                            <iframe
-                                width="100%"
-                                src="https://www.youtube.com/embed/KkiQH9msHaU"
-                                title="How to measure yourself for a tux"
-                                frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
-                                className="rounded-md w-full aspect-video"
-                            />
-                        </div>
+                        <p className="mb-2">
+                            <a href="https://generationtux.com/blog/how-to-guides/how-to-measure-for-a-suit-complete-guide" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">
+                                How to Measure for a Suit - Complete Guide <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-1" />
+                            </a>
+                        </p>
                         <p><strong>Note:</strong> If you do not own a tape measure, let me know and I will buy one for you.</p>
                     </div>
                 ),
@@ -274,7 +269,7 @@ const sections: FAQSection[] = [
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:text-blue-800"
                         >
-                            View Airbnb Reservation
+                            View Airbnb Reservation <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-1" />
                         </a>
                     </div>
                 ),
@@ -313,7 +308,7 @@ const sections: FAQSection[] = [
                     <div>
                         <p>I accept all common methods of electronic payment:</p>
                         <div className="mt-2 space-y-1">
-                            <p>Venmo: <a href="https://account.venmo.com/u/Luke-Stanbery" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">@Luke-Stanbery</a></p>
+                            <p>Venmo: <a href="https://account.venmo.com/u/Luke-Stanbery" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">@Luke-Stanbery <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-1" /></a></p>
                             <p>PayPal: LukeStanbery89@gmail.com</p>
                             <p>CashApp: $LukeStanbery</p>
                             <p>Zelle: (my phone number)</p>
