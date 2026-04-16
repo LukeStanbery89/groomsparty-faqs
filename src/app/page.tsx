@@ -124,33 +124,39 @@ const sections: FAQSection[] = [
         id: "groomsladies",
         faqs: [
             {
-                id: "groomsladies-tux",
-                question: "Where do I get my suit?",
+                id: "groomsladies-ceremony-attire",
+                question: "What should I wear to the ceremony?",
                 answer: (
                     <div>
-                        <p>Suit components are in this Amazon list:</p>
-                        <a
-                            href="https://www.amazon.com/hz/wishlist/ls/33OZ0UYP25Q9"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-600 hover:text-blue-800"
-                        >
-                            Amazon Wishlist <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-1" />
-                        </a>
-                        <p className="mt-2 text-sm text-zinc-500">FYI - The bow ties sold out, so I bought them myself.</p>
-                        <img
-                            src="/assets/groomsladies_look.png"
-                            alt="Groomsladies outfit inspiration"
-                            className="mt-3 rounded-md max-w-full"
-                        />
+                        <p>All the groomsladies are required to wear a dress which is:</p>
+                        <ul className="list-disc list-inside mt-2 space-y-1">
+                            <li>Black</li>
+                            <li>Floor-length</li>
+                            <li>Able to have something pinned to the chest</li>
+                        </ul>
+                        <p className="mt-2">You can pick out your dress, but please run it by the groom before buying.</p>
                     </div>
+                ),
+            },
+            {
+                id: "groomsladies-other-dresses",
+                question: "What are the other groomsladies wearing to the ceremony?",
+                answer: (
+                    <p>The other groomsladies are wearing the Birdy Grey and Azizie Charissa. You can purchase your dress from any vendor as long as it meets the criteria above.</p>
+                ),
+            },
+            {
+                id: "groomsladies-bridesmaids",
+                question: "What are the bridesmaids wearing to the ceremony?",
+                answer: (
+                    <p>The bridesmaids bought their dresses from Birdy Grey. However, please remember that you are part of the groom's party, so priortize visual cohesion with that side.</p>
                 ),
             },
             {
                 id: "groomsladies-reception-attire",
                 question: "What should I wear to the reception?",
                 answer: (
-                    <p>You are welcome to change out of your suit into a dress for the reception, but we ask that it be yellow. We want the groom's party to maintain visual cohesion even after changing out of your suits.</p>
+                    <p>Ideally, you should wear the same black dress you wore to the ceremony. However, if I previously permitted you to wear a yellow dress and you have already purchased it, you are welcome to change into that instead.</p>
                 ),
             },
             {
@@ -158,6 +164,20 @@ const sections: FAQSection[] = [
                 question: "How should I do my hair and nails?",
                 answer: (
                     <p>You can do your hair and nails however you like. We only ask that if you incorporate color, it does not conflict with the yellow and sage theme.</p>
+                ),
+            },
+            {
+                id: "groomsladies-shoes",
+                question: "What kind of shoes should I wear?",
+                answer: (
+                    <p>Heels are preferred. Flats are also okay, but we ask that you avoid anything casual like sneakers. Color should be neutral or yellow. Style (open toe, point, rounded, etc) is completely up to you.</p>
+                ),
+            },
+            {
+                id: "groomsladies-jewelry",
+                question: "What kind of jewelry should I wear?",
+                answer: (
+                    <p>You can wear whatever jewelry you like, as long as it does not conflict with the yellow and sage color scheme.</p>
                 ),
             },
             {
@@ -171,13 +191,6 @@ const sections: FAQSection[] = [
                         <p>Hair: $100</p>
                         <p>Full makeup: $100</p>
                     </div>
-                ),
-            },
-            {
-                id: "groomsladies-shoes",
-                question: "What kind of shoes should I wear?",
-                answer: (
-                    <p>Heels are preferred. Flats are also okay, but we ask that you avoid anything casual like sneakers. Color should be neutral or yellow. Style (open toe, point, rounded, etc) is completely up to you.</p>
                 ),
             },
         ],
